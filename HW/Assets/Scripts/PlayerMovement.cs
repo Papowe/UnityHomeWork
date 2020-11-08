@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed = 20f;
     [SerializeField] private float movementSpeed = 1f;
 
+
     Animator m_Animator;
     Rigidbody m_Rigidbody;
     AudioSource m_AudioSource;
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate ()
-    {
+    {      
         float horizontal = Input.GetAxis ("Horizontal");
         float vertical = Input.GetAxis ("Vertical");
         
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAnimatorMove ()
     {
-        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * movementSpeed * m_Animator.deltaPosition.magnitude);
+        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude * movementSpeed);
         m_Rigidbody.MoveRotation (m_Rotation);
     }
 }
