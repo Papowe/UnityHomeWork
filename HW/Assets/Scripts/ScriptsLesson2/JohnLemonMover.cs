@@ -21,23 +21,29 @@ public class JohnLemonMover : MonoBehaviour
         direction = Input.GetAxis("Vertical");
         rotation = Input.GetAxis("Horizontal");
 
+        if (direction < 0)
+        {
+            rotation = -rotation;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && isFloor == true)
         {
             playerRigidbody.AddForce(Vector3.up * forceJump, ForceMode.Impulse);
         }
     }
+
     private void FixedUpdate()
     {
         transform.Translate(new Vector3(0, 0, direction * speedPlayer * Time.fixedDeltaTime));
         transform.Rotate(new Vector3(0, rotation * speedRotation * Time.fixedDeltaTime, 0));                
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("floor"))
         {
             isFloor = true;
-        }
+        }        
     }
 
     private void OnCollisionExit(Collision collision)
