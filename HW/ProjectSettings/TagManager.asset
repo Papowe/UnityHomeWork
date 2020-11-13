@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - floor
+  - SpawnPointEnemy
+  - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -14,10 +17,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Gun
+  - Bullet
+  - Player
+  - Mine
   - 
   - 
   - 
