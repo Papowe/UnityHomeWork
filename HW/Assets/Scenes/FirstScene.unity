@@ -10008,8 +10008,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110, y: -25.415}
-  m_SizeDelta: {x: 203.26447, y: 50.830994}
+  m_AnchoredPosition: {x: 110, y: -28.6}
+  m_SizeDelta: {x: 203.26447, y: 57.24054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745125904
 MonoBehaviour:
@@ -10061,7 +10061,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "W,A,S,D - \u041F\u0435\u0440\u0435\u043C\u0435\u0449\u0435\u043D\u0438\u0435.
     \r\r\n\u041B\u041A\u041C - \u0412\u044B\u0441\u0442\u0440\u0435\u043B.\r\r\n\u041F\u041A\u041C
-    - \u041C\u0438\u043D\u0430."
+    - \u041C\u0438\u043D\u0430.\nSpase - \u041F\u0440\u044B\u0436\u043E\u043A."
 --- !u!222 &1745125906
 CanvasRenderer:
   m_ObjectHideFlags: 0
