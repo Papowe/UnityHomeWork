@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class JohnLemonMover : MonoBehaviour
-{
+{    
     [SerializeField] private float speedPlayer = 4f;
     [SerializeField] private float speedRotation = 90f;
     [SerializeField] private float forceJump = 5f;
@@ -29,16 +29,16 @@ public class JohnLemonMover : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isFloor == true)
         {
             playerRigidbody.AddForce(Vector3.up * forceJump, ForceMode.Impulse);
-        }
+        }      
     }
 
     private void FixedUpdate()
     {
         transform.Translate(new Vector3(0, 0, direction * speedPlayer * Time.fixedDeltaTime));
-        transform.Rotate(new Vector3(0, rotation * speedRotation * Time.fixedDeltaTime, 0));                
+        transform.Rotate(new Vector3(0, rotation * speedRotation * Time.fixedDeltaTime, 0));        
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("floor"))
         {
