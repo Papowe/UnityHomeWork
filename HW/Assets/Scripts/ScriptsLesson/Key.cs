@@ -35,7 +35,8 @@ public class Key : MonoBehaviour
         if (other.TryGetComponent<ListKeys>(out ListKeys listKeys))
         {
             listKeys.AddKey(keyId);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        Camera.main.transform.parent = null;
         Destroy(gameObject);
     }
 
