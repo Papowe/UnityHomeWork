@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mine : MonoBehaviour
 {
     [SerializeField] private int damage = 100;
-    [SerializeField] private float radius = 5f;
+    [SerializeField] private float radius = 2f;
     [SerializeField] private float power = 10f;
 
     private void Start()

@@ -2,8 +2,10 @@
 
 public class SpawnEnemy : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject prefabEnemy;
     [SerializeField] private GameObject[] spawnPoints;
+
+    private Transform[] wayPoints;
 
     private void Awake()
     {
@@ -13,7 +15,10 @@ public class SpawnEnemy : MonoBehaviour
     {
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            Instantiate(enemy, spawnPoints[i].transform.position, spawnPoints[i].transform.rotation, spawnPoints[i].transform);
+            wayPoints = spawnPoints[i].GetComponentsInChildren<Transform>();
+
+            var enemy = Instantiate(prefabEnemy, spawnPoints[i].transform.position, spawnPoints[i].transform.rotation, this.transform);
+            enemy.GetComponent<WaypointPatrol>().SetWaypoint(wayPoints);
         }
     }
 }
