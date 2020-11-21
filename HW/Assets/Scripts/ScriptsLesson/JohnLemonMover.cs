@@ -26,7 +26,7 @@ public class JohnLemonMover : MonoBehaviour
             rotation = -rotation;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isFloor == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isFloor.Equals(true))
         {
             playerRigidbody.AddForce(Vector3.up * forceJump, ForceMode.Impulse);
         }      

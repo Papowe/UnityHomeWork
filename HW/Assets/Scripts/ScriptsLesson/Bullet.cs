@@ -6,17 +6,22 @@ public class Bullet : MonoBehaviour
 {
     private int damage = 50;
     private float speedBullet = 10f;
+    private float lifeTime = 5f;
+
+    private Rigidbody bulletRigitBody;
 
     public int Damage { get => damage; set => damage = value; }
 
     private void Start()
     {
-        Destroy(gameObject, 5f);
-    }
-    private void Update()
-    {
-        transform.Translate(Vector3.forward * speedBullet * Time.deltaTime);
-    }
+        Destroy(gameObject, lifeTime);
+
+        bulletRigitBody = gameObject.GetComponent<Rigidbody>();
+
+        Vector3 impulce = transform.forward * bulletRigitBody.mass * speedBullet;
+
+        bulletRigitBody.AddForce(impulce, ForceMode.Impulse);
+    }   
 
     private void OnTriggerEnter(Collider other)
     {
