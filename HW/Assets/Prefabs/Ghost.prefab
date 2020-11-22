@@ -578,10 +578,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 3540391287371809819}
   waypoints: []
+  player: {fileID: 0}
   mask:
     serializedVersion: 2
-    m_Bits: 5120
-  player: {fileID: 0}
+    m_Bits: 13312
 --- !u!82 &6986812540457888193
 AudioSource:
   m_ObjectHideFlags: 0

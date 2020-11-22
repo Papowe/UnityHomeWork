@@ -1,15 +1,21 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Door : MonoBehaviour
 {
+    #region Fields
+
     [SerializeField] private GameObject key;
     [SerializeField] private int doorId;
     private Color colorDor;
 
+    #endregion
+
+    #region UnityMethods
+
     private void Start()
-    {
+    {        
         if (key)
         {
             gameObject.GetComponentInChildren<MeshRenderer>().material.color = key.GetComponent<Key>().ColorKey;
@@ -22,9 +28,27 @@ public class Door : MonoBehaviour
         if (collision.gameObject.TryGetComponent<ListKeys>(out ListKeys listKeys))
         {
             if (listKeys.HaveKey(doorId))
-            {
-                transform.rotation = Quaternion.LookRotation(-transform.right);
+            {             
+                StartCoroutine(ClosingDooor(2));
             }
         }
-    }    
+    }
+
+    #endregion
+
+    #region Methods
+
+    private IEnumerator ClosingDooor(float time)
+    {
+        Quaternion curentRorartion = transform.rotation;
+        Quaternion fsdf = Quaternion.LookRotation(-transform.right);
+
+        for (float i = 0; i < time; i += Time.deltaTime)
+        { 
+            transform.rotation = Quaternion.Lerp(curentRorartion, fsdf, i);
+            yield return null;
+        }
+    }
+
+    #endregion
 }

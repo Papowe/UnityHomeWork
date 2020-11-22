@@ -5,7 +5,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private GameObject prefabEnemy;
     [SerializeField] private GameObject[] spawnPoints;
 
-    private Transform[] wayPoints;
+    public Transform[] wayPoints;
 
     private void Awake()
     {

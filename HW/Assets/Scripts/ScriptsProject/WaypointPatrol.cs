@@ -22,7 +22,7 @@ public class WaypointPatrol : MonoBehaviour
     void Start ()
     {
         navMeshAgent.SetDestination (waypoints[m_CurrentWaypointIndex].position);
-        navMeshAgent.speed = Random.Range(1f, 3f);
+        navMeshAgent.speed = Random.Range(0.5f, 2f);
     }   
 
     private void FixedUpdate()
@@ -66,12 +66,14 @@ public class WaypointPatrol : MonoBehaviour
     private void Comeback()
     {
         if (isPatrol == true && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
-        {
+        {            
             m_CurrentWaypointIndex = (m_CurrentWaypointIndex + 1) % waypoints.Length;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
         }
         else if (!isPatrol)
         {
+            Wait();
+            Invoke(nameof(Go), 2f);
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
             isPatrol = true;
         }
@@ -81,6 +83,16 @@ public class WaypointPatrol : MonoBehaviour
     {
         isPatrol = false;
         navMeshAgent.SetDestination(player.position);
+    }
+
+    private void Wait()
+    {
+        navMeshAgent.isStopped = true;
+    }
+
+    private void Go()
+    {
+        navMeshAgent.isStopped = false;
     }
 
     #endregion
