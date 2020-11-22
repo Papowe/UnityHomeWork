@@ -41,11 +41,11 @@ public class Door : MonoBehaviour
     private IEnumerator ClosingDooor(float time)
     {
         Quaternion curentRorartion = transform.rotation;
-        Quaternion fsdf = Quaternion.LookRotation(-transform.right);
+        Quaternion rightRotation = Quaternion.LookRotation(-transform.right);
 
         for (float i = 0; i < time; i += Time.deltaTime)
         { 
-            transform.rotation = Quaternion.Lerp(curentRorartion, fsdf, i);
+            transform.rotation = Quaternion.Lerp(curentRorartion, rightRotation, i);
             yield return null;
         }
     }

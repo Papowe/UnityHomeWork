@@ -29,13 +29,15 @@ public class JohnLemonMover : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isFloor.Equals(true))
         {
             playerRigidbody.AddForce(Vector3.up * forceJump, ForceMode.Impulse);
-        }      
+        }
     }
 
     private void FixedUpdate()
-    {
-        transform.Translate(new Vector3(0, 0, direction * speedPlayer * Time.fixedDeltaTime));
-        transform.Rotate(new Vector3(0, rotation * speedRotation * Time.fixedDeltaTime, 0));        
+    {  
+        playerRigidbody.MovePosition(transform.position + transform.forward * direction * speedPlayer * Time.fixedDeltaTime);
+
+        Quaternion deltaRotation = Quaternion.Euler(Vector3.up * rotation * speedRotation * Time.deltaTime);
+        playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);              
     }
 
     private void OnCollisionEnter(Collision collision)
