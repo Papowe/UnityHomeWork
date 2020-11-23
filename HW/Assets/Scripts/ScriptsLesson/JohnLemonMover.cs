@@ -27,6 +27,9 @@ public class JohnLemonMover : MonoBehaviour
             rotation = -rotation;
         }
 
+        transform.Translate(Vector3.forward * direction * speedPlayer * Time.deltaTime);
+        transform.Rotate(Vector3.up * rotation * speedRotation * Time.deltaTime);
+
         if (Input.GetKeyDown(KeyCode.Space) && isFloor.Equals(true))
         {
             playerRigidbody.AddForce(Vector3.up * forceJump, ForceMode.Impulse);
@@ -34,11 +37,10 @@ public class JohnLemonMover : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {  
-        playerRigidbody.MovePosition(transform.position + transform.forward * direction * speedPlayer * Time.fixedDeltaTime);
-
-        Quaternion deltaRotation = Quaternion.Euler(Vector3.up * rotation * speedRotation * Time.deltaTime);
-        playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);      
+    {
+        //playerRigidbody.MovePosition(transform.position + transform.forward * direction * speedPlayer * Time.fixedDeltaTime);
+        //Quaternion deltaRotation = Quaternion.Euler(Vector3.up * rotation * speedRotation * Time.deltaTime);
+        //playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);      
     }
 
     private void OnCollisionEnter(Collision collision)

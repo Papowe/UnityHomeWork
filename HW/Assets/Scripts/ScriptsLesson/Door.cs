@@ -48,6 +48,8 @@ public class Door : MonoBehaviour
             transform.rotation = Quaternion.Lerp(curentRorartion, rightRotation, i);
             yield return null;
         }
+
+        yield break;
     }
 
     #endregion
