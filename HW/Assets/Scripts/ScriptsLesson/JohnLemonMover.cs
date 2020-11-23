@@ -7,6 +7,7 @@ public class JohnLemonMover : MonoBehaviour
     [SerializeField] private float forceJump = 5f;
     [SerializeField] private bool isFloor = true;
 
+
     private float rotation;
     private float direction;
     private Rigidbody playerRigidbody;
@@ -37,7 +38,7 @@ public class JohnLemonMover : MonoBehaviour
         playerRigidbody.MovePosition(transform.position + transform.forward * direction * speedPlayer * Time.fixedDeltaTime);
 
         Quaternion deltaRotation = Quaternion.Euler(Vector3.up * rotation * speedRotation * Time.deltaTime);
-        playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);              
+        playerRigidbody.MoveRotation(playerRigidbody.rotation * deltaRotation);      
     }
 
     private void OnCollisionEnter(Collision collision)
