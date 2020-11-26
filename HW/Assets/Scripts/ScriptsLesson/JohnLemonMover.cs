@@ -11,16 +11,24 @@ public class JohnLemonMover : MonoBehaviour
     private float rotation;
     private float direction;
     private Rigidbody playerRigidbody;
+    private Animator playerAnimator;
 
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {        
         direction = Input.GetAxis("Vertical");
         rotation = Input.GetAxis("Horizontal");
+
+        bool hasHorizontalInput = !Mathf.Approximately(rotation, 0f);
+        bool hasVerticalInput = !Mathf.Approximately(direction, 0f);
+        bool isWalking = hasHorizontalInput || hasVerticalInput && transform.position.y <= 0.55f;
+
+        playerAnimator.SetBool("IsWalking", isWalking);
 
         if (direction < 0)
         {
@@ -33,7 +41,7 @@ public class JohnLemonMover : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isFloor.Equals(true))
         {
             playerRigidbody.AddForce(Vector3.up * forceJump, ForceMode.Impulse);
-        }
+        }   
     }
 
     private void FixedUpdate()

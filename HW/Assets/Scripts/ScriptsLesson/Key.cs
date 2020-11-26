@@ -6,8 +6,6 @@ public class Key : MonoBehaviour
 {
     [SerializeField] private Color colorKey;
     [SerializeField] private int keyId;
-    [SerializeField] private float speedRotation;
-
     public Color ColorKey { get => colorKey; }
     public int KeyId { get => keyId; }
 
@@ -25,11 +23,6 @@ public class Key : MonoBehaviour
         }        
     }
 
-    private void Update()
-    {
-        AnimationKey(speedRotation);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<ListKeys>(out ListKeys listKeys))
@@ -38,10 +31,5 @@ public class Key : MonoBehaviour
             //Destroy(gameObject);
             gameObject.SetActive(false);
         }
-    }
-
-    private void AnimationKey(float speedRotation)
-    {        
-        transform.Rotate(Vector3.up * speedRotation * Time.deltaTime, Space.World);
     }
 }

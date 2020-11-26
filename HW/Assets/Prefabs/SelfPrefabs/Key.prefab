@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 469743476318836770}
   - component: {fileID: 469743476318836769}
   - component: {fileID: 6828677834922640293}
+  - component: {fileID: 8007451748328492748}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -292,7 +293,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorKey: {r: 0.7921569, g: 0.14198712, b: 0.08627448, a: 0}
   keyId: 0
-  speedRotation: -180
 --- !u!65 &6828677834922640293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -306,3 +306,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.34, y: 0.67, z: 0.16}
   m_Center: {x: 0, y: 0.14, z: 0}
+--- !u!95 &8007451748328492748
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469743476318836768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 344ece6f1e4129e479d538f3b5f284bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
