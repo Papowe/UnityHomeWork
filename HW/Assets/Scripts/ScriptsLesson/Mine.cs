@@ -32,8 +32,9 @@ public class Mine : MonoBehaviour
 
             if (rb != null)
             {
-                Vector3 dirrection = (rb.position - transform.position).normalized;
-                rb.AddForce(dirrection * power, ForceMode.Impulse);
+                //Vector3 dirrection = (rb.position - transform.position).normalized;
+                //rb.AddForce(dirrection * power, ForceMode.Impulse);
+                rb.AddExplosionForce(power, transform.position, radius);
             }
         }
     }   

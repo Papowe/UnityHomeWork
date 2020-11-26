@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 90
-  radius: 1
-  power: 10
+  radius: 2
+  power: 500
