@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b502e6136c8c0344f95e7a37e44e1907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 50
   speedRotation: 0.5
   targetDistance: 6
   timeBulletSpawn: 0.3
