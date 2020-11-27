@@ -8,18 +8,29 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int health = 1000;
     [SerializeField] InformationPanel informationPanel;
 
+    public int Health
+    {
+        get => health; 
+        set
+        {
+            health = value;
+            HealthBar healthBar = GameObject.FindObjectOfType<HealthBar>();
+            healthBar.ViewHealts();
+        }
+    }
+
     public void GetDamage(int damage)
     {
-        health -= damage;
+        Health -= damage;
         if (health <= 0)
         {
             Die();
-        }
+        }        
     }
 
     public void AddHealth(int health)
     {
-        this.health += health; 
+        Health += health;
     }
 
     private void Die()

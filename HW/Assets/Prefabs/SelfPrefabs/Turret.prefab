@@ -237,13 +237,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b502e6136c8c0344f95e7a37e44e1907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 25
   speedRotation: 0.5
   targetDistance: 6
+  timeBulletSpawn: 0.3
   bullet: {fileID: 2335812203389051566, guid: cd833def78e78b6419f0f67fa3ce918b, type: 3}
   gun: {fileID: 7281167489137666638}
   target: {fileID: 0}
-  timeBulletSpawn: 0.3
 --- !u!1 &7281167490308812167
 GameObject:
   m_ObjectHideFlags: 0
