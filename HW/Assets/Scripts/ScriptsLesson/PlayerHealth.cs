@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int health = 1000;
+    [SerializeField] InformationPanel informationPanel;
 
     public void GetDamage(int damage)
     {
@@ -22,9 +23,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void Die()
-    {
-        Camera.main.transform.parent = null;
-        Destroy(gameObject);
+    {       
+        informationPanel.Information("YOU LOSE");
     }
 
 }

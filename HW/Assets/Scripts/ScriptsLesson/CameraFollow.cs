@@ -24,10 +24,13 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
-        var currentPosition = targetFollow.TransformPoint(position) + positionOffset;
-        transform.position = Vector3.Lerp(transform.position, currentPosition, speedCamera * Time.deltaTime);
-        var currentRotation = Quaternion.LookRotation(targetFollow.position - transform.position + rotationOffset);
-        transform.rotation = Quaternion.Lerp(transform.rotation, currentRotation, speedCamera * Time.deltaTime);
+        if (targetFollow)
+        {
+            var currentPosition = targetFollow.TransformPoint(position) + positionOffset;
+            transform.position = Vector3.Lerp(transform.position, currentPosition, speedCamera * Time.deltaTime);
+            var currentRotation = Quaternion.LookRotation(targetFollow.position - transform.position + rotationOffset);
+            transform.rotation = Quaternion.Lerp(transform.rotation, currentRotation, speedCamera * Time.deltaTime);
+        }
 
     }
 

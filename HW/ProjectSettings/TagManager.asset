@@ -8,6 +8,7 @@ TagManager:
   - SpawnPointEnemy
   - Enemy
   - Wall
+  - InformationPanel
   layers:
   - Default
   - TransparentFX
