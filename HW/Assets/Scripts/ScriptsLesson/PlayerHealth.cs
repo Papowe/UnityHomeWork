@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        MyUIController.instance.ShowInformationpannel("YOU LOSE");
+        MyUIController.instance.GameStatus("YOU LOSE");
     }
 
 }

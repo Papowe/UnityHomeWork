@@ -8,10 +8,10 @@ public class MyUIController : MonoBehaviour
     #region Fields
 
     public static MyUIController instance;
+    [Header("SetForLevel 1")]
     [SerializeField] private GameObject informationPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Text informationText;
-
 
     #endregion
 
@@ -35,7 +35,7 @@ public class MyUIController : MonoBehaviour
 
     #region Method
 
-    public void ShowInformationpannel(string text)
+    public void GameStatus(string text)
     {
         informationPanel.SetActive(true);
         informationText.text = text;
@@ -59,6 +59,23 @@ public class MyUIController : MonoBehaviour
             pausePanel.SetActive(false);
         }
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void OpenPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+
+
 
     #endregion
 }

@@ -13,7 +13,7 @@ public class FinishLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            MyUIController.instance.ShowInformationpannel("YOU WIN");
+            MyUIController.instance.GameStatus("YOU WIN");
         }
     }
 
