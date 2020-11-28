@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int health = 1000;
-    [SerializeField] InformationPanel informationPanel;
 
     public int Health
     {
@@ -34,8 +33,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void Die()
-    {       
-        informationPanel.Information("YOU LOSE");
+    {
+        MyUIController.instance.ShowInformationpannel("YOU LOSE");
     }
 
 }

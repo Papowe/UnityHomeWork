@@ -3,10 +3,7 @@
 
 public class FinishLevel : MonoBehaviour
 {
-    #region Fields
-
-    [SerializeField] InformationPanel informationPanel;
-
+    #region Fields    
     #endregion
 
 
@@ -16,7 +13,7 @@ public class FinishLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            informationPanel.Information("YOU WIN");
+            MyUIController.instance.ShowInformationpannel("YOU WIN");
         }
     }
 
