@@ -293,6 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorKey: {r: 0.7921569, g: 0.14198712, b: 0.08627448, a: 0}
   keyId: 0
+  effectKey: {fileID: 1995403933065894, guid: 4961a16ba01e09547be3e1c9d16d5ad0, type: 3}
 --- !u!65 &6828677834922640293
 BoxCollider:
   m_ObjectHideFlags: 0

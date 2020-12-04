@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Key : MonoBehaviour
 {
     [SerializeField] private Color colorKey;
     [SerializeField] private int keyId;
+    [SerializeField] private GameObject effectKey;
     public Color ColorKey { get => colorKey; }
     public int KeyId { get => keyId; }
 
@@ -28,7 +28,7 @@ public class Key : MonoBehaviour
         if (other.TryGetComponent<ListKeys>(out ListKeys listKeys))
         {
             listKeys.AddKey(keyId);
-            //Destroy(gameObject);
+            Instantiate(effectKey, transform.position, transform.rotation);
             gameObject.SetActive(false);
         }
     }

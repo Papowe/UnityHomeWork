@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int health = 1000;
+    [SerializeField] private AudioSource stopMusic;
+    [SerializeField] private AudioSource loseMusic;
+
 
     public int Health
     {
@@ -34,7 +37,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        //Time.timeScale = 0;
+        stopMusic.Stop();
+        loseMusic.Play();
+        gameObject.SetActive(false);
         MyUIController.instance.GameStatus("YOU LOSE");
+        
     }
 
 }

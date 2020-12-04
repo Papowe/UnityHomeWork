@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MyUIController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MyUIController : MonoBehaviour
     [SerializeField] private GameObject informationPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Text informationText;
+    [SerializeField] private AudioMixerGroup Mixer;
 
     #endregion
 
@@ -53,10 +55,12 @@ public class MyUIController : MonoBehaviour
         if (timescale == 0)
         {
             pausePanel.SetActive(true);
+            Mixer.audioMixer.SetFloat("EffectSound", -80f);
         }
         else if (timescale == 1)
         {
             pausePanel.SetActive(false);
+            Mixer.audioMixer.SetFloat("EffectSound", 0f);
         }
     }
 

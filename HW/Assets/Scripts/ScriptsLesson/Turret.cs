@@ -10,7 +10,9 @@ public class Turret : MonoBehaviour
     [SerializeField] private float timeBulletSpawn = 3f;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform gun;
-    [SerializeField] private Transform target;        
+    [SerializeField] private Transform target;
+    [SerializeField] private AudioClip audioClipShot;
+    [SerializeField] private AudioSource audioSourceShot;
 
     private Transform bulletDeparturePoint;
     private float duration;
@@ -30,6 +32,8 @@ public class Turret : MonoBehaviour
                 duration += Time.deltaTime;
                 if (duration > timeBulletSpawn)
                 {
+                    PlaySoundShot();
+
                     GameObject projecTille = Instantiate(bullet, bulletDeparturePoint.position, bulletDeparturePoint.rotation);
                     projecTille.GetComponent<Bullet>().Damage = damage;
                     duration = 0;
@@ -39,5 +43,11 @@ public class Turret : MonoBehaviour
                 gun.rotation = Quaternion.LookRotation(newDir);
             }
         }
+    }
+
+    private void PlaySoundShot()
+    {
+        audioSourceShot.pitch = Random.Range(0.9f, 1.3f);
+        audioSourceShot.PlayOneShot(audioClipShot);
     }
 }

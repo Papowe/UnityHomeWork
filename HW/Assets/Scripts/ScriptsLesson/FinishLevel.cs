@@ -4,6 +4,10 @@
 public class FinishLevel : MonoBehaviour
 {
     #region Fields    
+
+    [SerializeField] private AudioSource winMusic;
+    [SerializeField] private AudioSource stopMusic;
+
     #endregion
 
 
@@ -13,6 +17,8 @@ public class FinishLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            winMusic.Play();
+            stopMusic.Stop();
             MyUIController.instance.GameStatus("YOU WIN");
         }
     }
